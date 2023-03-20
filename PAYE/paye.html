@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 1 Code Challenge</title>
+    <link rel="stylesheet" href="paye.css">
+</head>
+<body>
+    <div id="Basic Salary">
+    <h1> Net Salary Calculator</h1>
+    <input id="Basic" type="number" placeholder="Monthly Income" min="0" oninput="handleSalary(event)">
+    </div>
+
+    <!--output-->
+    <div>NHIF :<span id="nhif"></span></div>
+    <div>NSSF :<span id="nssf"></span></div>
+    <div>PAYEE : <span id="payee"></span></div>
+    <div>Taxable Income : <span id="taxableincome"></span></div>
+    <div>Net Salary : <span id="netpay"></span></div>
+
+      <script src="paye.js"></script>
+</body>
+</html>
