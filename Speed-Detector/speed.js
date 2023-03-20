@@ -4,6 +4,7 @@ const calculatePoints = () => {
     const speedLimit = 70;
     const kmPerPoint = 5;
   
+    // checks the driver's speed
     if (speed <= speedLimit) {
       document.getElementById("outputSpeed").innerHTML = 'Ok';
     } else {

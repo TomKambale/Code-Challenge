@@ -1,5 +1,5 @@
 
-// gross income calculation
+// Calculates gross income by adding the basic salary to any number of allowances
 function grossIncome(basicSalary, ...allowances){
 	let sum = basicSalary
 	for(let allowance of allowances){
@@ -8,7 +8,7 @@ function grossIncome(basicSalary, ...allowances){
 	return sum
 	}
    
-	//NHIF deductions per salary range
+	//Calculates NHIF deductions based on gross pay
 	function NHIF(grossPay){
 	   if(grossPay < 6000){
 	       return 150
@@ -60,12 +60,14 @@ function grossIncome(basicSalary, ...allowances){
 	       return 1700
 	   }
        }
-       //NSSF calculations
+
+       //Calculates NSSF deductions based on pensionable pay
    
        function NSSF(pensionablePay){
 	   return pensionablePay * 0.06
        }
-       //console.log(NSSF(7000))
+
+       // Calculates taxable pay by subtracting any number of deductions
    
        function taxablePay(grossIncome, ...deductions){
 	   for(let deduction of deductions){
@@ -73,7 +75,8 @@ function grossIncome(basicSalary, ...allowances){
 	   }
 	   return grossIncome
        }
-       //PAYE Salary Range
+
+       //Calculates PAYE (Pay As You Earn) tax based on taxable pay
    
        function PAYEE(taxablepay){
 	   if(taxablepay <= 24000){
@@ -84,16 +87,16 @@ function grossIncome(basicSalary, ...allowances){
 	       return taxablepay * 0.3
 	   }
        }
-       //Net Salary Calculator
+       //Calculates net pay by subtracting PAYE tax from taxable pay
    
        function netPay(taxablepay, payee){
 	   return taxablepay - payee
        }
-       //console.log(netPay(100000, 20000))
+       //retrieves the basic salary value from an input field and the allowance values
        function handleSalary(event){
 	   let val = parseInt(document.getElementById("Basic").value)
 	   let basicSalary= Boolean(val)? val : 0
-       //console.log(basicSalary)
+       
        let allowances = Array.from(document.getElementsByClassName("allowances")).map(function(element){
 	   return Boolean(element.value) ? parseInt(element.value) : 0
        })
@@ -110,3 +113,4 @@ function grossIncome(basicSalary, ...allowances){
        document.getElementById("taxableincome").textContent = taxableincome
        document.getElementById("netpay").textContent = net
        }
+
